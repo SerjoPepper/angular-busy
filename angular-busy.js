@@ -193,7 +193,7 @@ angular.module('cgBusy').directive('cgBusy',['$compile','$templateCache','cgBusy
                         });
                     }
 
-                    templateScope.$cgBusyIsActive = function() {
+                    templateScope.$cgBusyIsActive = scope.$cgBusyIsActive = function() {
                         return tracker.active();
                     };
 
