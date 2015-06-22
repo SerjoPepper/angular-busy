@@ -215,12 +215,12 @@ angular.module('cgBusy').directive('cgBusy',['$compile','$templateCache','cgBusy
                             options.backdrop = typeof options.backdrop === 'undefined' ? true : options.backdrop;
 
                             if (options.backdrop){
-                                var backdrop = '<div class="cg-busy cg-busy-backdrop cg-busy-backdrop-animation ng-hide" ng-show="$cgBusyIsActive()"></div>';
+                                var backdrop = '<div class="cg-busy cg-busy-backdrop cg-busy-backdrop-animation" ng-if="$cgBusyIsActive()"></div>';
                                 backdropElement = $compile(backdrop)(templateScope);
                                 element.append(backdropElement);
                             }
 
-                            var template = '<div class="'+options.wrapperClass+' ng-hide" ng-show="$cgBusyIsActive()">' + indicatorTemplate + '</div>';
+                            var template = '<div class="'+options.wrapperClass+'" ng-if="$cgBusyIsActive()">' + indicatorTemplate + '</div>';
                             templateElement = $compile(template)(templateScope);
 
                             angular.element(templateElement.children()[0])
